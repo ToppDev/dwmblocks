@@ -2,7 +2,7 @@
 #define PATH(name)                      "<path to the folder containing block scripts>/"name
 
 /* buffer size for capturing output of the programs used for updating blocks */
-#define CMDOUTLENGTH                    50
+#define CMDOUTLENGTH                    70
 
 /* DELIMITERENDCHAR must be less than 32.
  * At max, DELIMITERENDCHAR - 1 number of clickable blocks are allowed.
@@ -16,8 +16,11 @@
 #define DELIMITERENDCHAR                10
 
 /* delimiter specified as an array of characters
- * (don't remove DELIMITERENDCHAR at the end) */
-static const char delimiter[] = { ' ', ' ', ' ', DELIMITERENDCHAR };
+ * (don't remove DELIMITERENDCHAR at the end)
+ *
+ * utf-8 characters are longer than 1 byte, so split them into multiple bytes.
+ * e.g. │ = [226, 148, 130] (see https://unicode-table.com/en/2502/) */
+static const char delimiter[] = { ' ', 226, 148, 130, ' ', DELIMITERENDCHAR };
 
 #include "block.h"
 
