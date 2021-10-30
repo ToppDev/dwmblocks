@@ -1,6 +1,3 @@
-/* macro for conveniently specifying pathu and pathc below */
-#define PATH(name)                      "<path to the folder containing block scripts>/"name
-
 /* buffer size for capturing output of the programs used for updating blocks */
 #define CMDOUTLENGTH                    70
 
@@ -46,9 +43,13 @@ static const char delimiter[] = { ' ', 226, 148, 130, ' ', DELIMITERENDCHAR };
 
 static Block blocks[] = {
 /*      pathu                           pathc                           interval        signal */
-        { PATH("calendar.sh"),          NULL,                           30,             1},
-        { PATH("volume.sh"),            PATH("volume_button.sh"),       0,              2},
-        { PATH("cpu_temp.sh"),          PATH("cpu_temp_button.sh"),     1,              4},
-        { PATH("battery.sh"),           PATH("battery_button.sh"),      30,             3},
+        { "sb-disk",                    "sb-disk",                      30,             6 },
+        { "sb-memory",                  "sb-memory",                    30,             5 },
+        { "sb-nvidia",                  "sb-nvidia",                     2,             4 },
+        { "sb-cpu",                     "sb-cpu",                        1,             3 },
+        { "sb-internet",                "sb-internet",                   5,             2 },
+        { "sb-volume",                  "sb-volume",                     0,             7 },
+        { "sb-battery",                 "sb-battery",                    5,             8 },
+        { "sb-clock",                   "sb-clock",                     30,             1 },
         { NULL } /* just to mark the end of the array */
 };
