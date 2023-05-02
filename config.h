@@ -1,5 +1,5 @@
 /* buffer size for capturing output of the programs used for updating blocks */
-#define CMDOUTLENGTH                    70
+#define CMDOUTLENGTH                    140
 
 /* DELIMITERENDCHAR must be less than 32.
  * At max, DELIMITERENDCHAR - 1 number of clickable blocks are allowed.
