@@ -46,6 +46,7 @@ static Block blocks[] = {
         { "sb-disk",                    "sb-disk",                      20,             6 },
         { "sb-memory",                  "sb-memory",                    10,             5 },
         { "sb-nvidia",                  "sb-nvidia",                     2,             4 },
+        { "sb-radeon",                  "sb-radeon",                     2,             9 },
         { "sb-cpu",                     "sb-cpu",                        1,             3 },
         { "sb-internet",                "sb-internet",                   5,             2 },
         { "sb-volume",                  "sb-volume",                    10,             7 },
