@@ -10,7 +10,6 @@
 #include <X11/Xlib.h>
 
 #define NILL                            INT_MIN
-#define LOCKFILE                        "/var/local/dwmblocks/dwmblocks.pid"
 
 #define LENGTH(X)                       (sizeof X / sizeof X[0])
 
@@ -32,6 +31,7 @@ static void updateblock(Block *block, int sigval);
 static void updatestatus(void);
 static void writepid(void);
 
+static char LOCKFILE[40];
 static Block *dirtyblock;
 static Display *dpy;
 static sigset_t blocksigmask;
@@ -305,6 +305,7 @@ main(int argc, char *argv[])
 {
         int xfd;
 
+        sprintf(LOCKFILE, "/var/run/user/%d/dwmblocks.pid", getuid());
         writepid();
         if (!(dpy = XOpenDisplay(NULL))) {
                 fputs("Error: could not open display.\n", stderr);
