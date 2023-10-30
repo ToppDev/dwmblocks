@@ -7,7 +7,8 @@
 #include <unistd.h>
 
 #define NILL                            INT_MIN
-#define LOCKFILE                        "/var/local/dwmblocks/dwmblocks.pid"
+
+static char LOCKFILE[40];
 
 int
 parsesignal(char *arg)
@@ -92,6 +93,8 @@ main(int argc, char *argv[])
 {
         int sig;
         union sigval sv;
+
+        sprintf(LOCKFILE, "/var/run/user/%d/dwmblocks.pid", getuid());
 
         if (argc < 2 || argc > 3) {
                 fputs("Usage: sigdwmblocks <signal> [<sigval>]\n", stderr);
